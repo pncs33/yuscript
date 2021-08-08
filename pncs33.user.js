@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         pncs33-test
+// @name         pncs33
 // @namespace    http://tampermonkey.net/
 // @version      0.16031
 // @description  try to take over the world!
