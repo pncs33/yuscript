@@ -3,11 +3,11 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.16030
 // @description  try to take over the world!
-// @author       yamatohagi
+// @author       hgy
 // @match        https://*/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
-// @updateURL    https://github.com/yamatohagi/TampermonkeyScript/raw/main/test.user.js
+// @updateURL    https://github.com/pncs33/yuscript/raw/main/pncs33.user.js
 // ==/UserScript==
 let mwurl = location.href
 console.log(mwurl);
