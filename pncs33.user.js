@@ -1,13 +1,14 @@
 // ==UserScript==
-// @name         pncs33
+// @name         test
 // @namespace    http://tampermonkey.net/
-// @version      0.16033
+// @version      0.16035
 // @description  try to take over the world!
-// @author       hgy
+// @author       yamatohagi
 // @match        https://*/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
-// @updateURL    https://github.com/pncs33/yuscript/raw/main/pncs33.user.js
+// @updateURL    https://github.com/yamatohagi/TampermonkeyScript/raw/main/test.user.js
+// @downloadURL  https://github.com/yamatohagi/TampermonkeyScript/raw/main/test.user.js
 // ==/UserScript==
 let mwurl = location.href
 console.log(mwurl);
@@ -260,4 +261,36 @@ if (mwurl.match(/ties\/\d/)) {
     }
   }
 }
-//////////////////////////////////////////【adminパーティーのみ】/////////////////////////////////////【adminパーティーのみ】/////////////////////////////【adminパーティーのみ】//////////////////////
+//////////////////////////////////////////【adminPのみ】////////////////////////////////////////【adminPのみ】///////////////////
+if (mwurl.match(/\/admin\/parties\//)) {
+  var Pidclass = document.getElementsByClassName('party_id');
+  for (var pidi = 0; pidi < Pidclass.length; pidi++) {
+    Pidclass[pidi].addEventListener('click', function () {
+      var NUMPid = ($('.party_id').index(this))
+      var targetPid = document.getElementsByClassName('party_id')[NUMPid]
+      targetPid.style.background = '#00FF00';
+      setTimeout(() => {
+        targetPid.style.background = '';
+      }, 200);
+      navigator.clipboard.writeText(document.getElementsByClassName('party_id')[NUMPid].textContent);
+    }, false);
+    Pidclass[pidi].addEventListener('mouseover', function () {
+      var NUMPid = ($('.party_id').index(this))
+      var targetPid = document.getElementsByClassName('party_id')[NUMPid]
+      targetPid.style.background = '#FFFF33';
+    }, false);
+    Pidclass[pidi].addEventListener('mouseleave', function () {
+      var NUMPid = ($('.party_id').index(this))
+      var targetPid = document.getElementsByClassName('party_id')[NUMPid]
+      targetPid.style.background = '';
+
+    }, false);
+  }
+}
+if (mwurl.match(/jp\/admin\//)) {//クリップボード対策
+  navigator.clipboard.readText().then((data) => {
+    var popo = data;
+    console.log(popo)
+  });
+}
+//////////////////////////////////////////【adminパーティーのみ】/////////////////////////////////////【adminパーティーのみ】////////////////////
