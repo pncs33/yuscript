@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         pncs33-test
+// @name         pncs33
 // @namespace    http://tampermonkey.net/
-// @version      0.16030
+// @version      0.16035
 // @description  try to take over the world!
 // @author       hgy
 // @match        https://*/*
