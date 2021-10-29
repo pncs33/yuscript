@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         pncs33
 // @namespace    http://tampermonkey.net/
-// @version      0.16042
+// @version      0.16043
 // @description  try to take over the world!
 // @author       hgy
 // @match        https://*/*
@@ -88,7 +88,7 @@ if (mwurl.match(/^(?=.*ty.jp)(?=.*members)(?=.*admin)/)) {
             setTimeout(function () {
                 document.getElementById("id0003").style.background = "#FFCC66"
             }, 2000);
-            let fullNameString = document.getElementsByClassName('table table-sm table-bordered')[0].textContent.match(/姓名（ふりがな）(.*)\s[（(]/);
+            let fullNameString = document.getElementsByClassName('table table-sm table-bordered')[0].textContent.match(/姓名（ふりがな）(.*)\s\s[（(]/);
             if (!(fullNameString == null || fullNameString == '')) {
                 navigator.clipboard.writeText(fullNameString[1]);
                 console.log(fullNameString[1]);
