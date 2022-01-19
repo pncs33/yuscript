@@ -1,13 +1,14 @@
 // ==UserScript==
-// @name         pncs33
+// @name         test
 // @namespace    http://tampermonkey.net/
-// @version      0.16043
+// @version      0.16044
 // @description  try to take over the world!
-// @author       hgy
+// @author       yamatohagi
 // @match        https://*/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
-// @updateURL    https://github.com/pncs33/yuscript/raw/main/pncs33.user.js
+// @updateURL    https://github.com/yamatohagi/TampermonkeyScript/raw/main/test.user.js
+// @downloadURL  https://github.com/yamatohagi/TampermonkeyScript/raw/main/test.user.js
 // ==/UserScript==
 let mwurl = location.href
 console.log(mwurl);
@@ -67,50 +68,7 @@ if (mwurl.match(/^(?=.*ty.jp)(?=.*members)(?=.*admin)/)) {
     let $ = window.jQuery;
     let element = '';
     //////////______________________________________会員詳細情報画面のみ
-    let maillcopyclientfield = '';
-    if (document.querySelector("body > div > h2").textContent == '会員詳細情報') {
-        console.log("会員詳細情報が実行されています");
-        $('th.background-lightgray:eq(6)').append($('<input type="button" id="id001" value="メアドコピー" style="width:80px;height:25px;font-size:8px;background:#3399FF;" >').click(function () {
-            document.getElementById("id001").style.background = "#CCCCCC"
-            setTimeout(function () {
-                document.getElementById("id001").style.background = "#3399FF"
-            }, 2000);
-            maillcopyclientfield = document.getElementsByClassName('table table-sm table-bordered')[0].textContent.match(/メールアドレス(.*)連絡用メールアドレス/)[1];
-            if (!(maillcopyclientfield == null || maillcopyclientfield == '')) {
-                navigator.clipboard.writeText(maillcopyclientfield);
-                console.log(maillcopyclientfield);
-            } else {
-                navigator.clipboard.writeText('ER');
-            }
-        }));;
-        $('th.background-lightgray:eq(2)').append($('<input type="button" id="id0003" value="フルネーム" style="width:70px;height:27px;font-size:8px;background:#FFCC66;" >').click(function () {
-            document.getElementById("id0003").style.background = "#CCCCCC"
-            setTimeout(function () {
-                document.getElementById("id0003").style.background = "#FFCC66"
-            }, 2000);
-            let fullNameString = document.getElementsByClassName('table table-sm table-bordered')[0].textContent.match(/姓名（ふりがな）(.*)\s\s[（(]/);
-            if (!(fullNameString == null || fullNameString == '')) {
-                navigator.clipboard.writeText(fullNameString[1]);
-                console.log(fullNameString[1]);
-            } else {
-                navigator.clipboard.writeText('ER');
-            }
-        }));;
-        $('th.background-lightgray:eq(2)').append($('<input type="button" id="id0001" value="苗字" style="width:50px;height:27px;font-size:8px;background:#00CC33;" >').click(function () {
-            document.getElementById("id0001").style.background = "#CCCCCC"
-            setTimeout(function () {
-                document.getElementById("id0001").style.background = "#00CC33"
-            }, 2000);
-            var tagetString = document.getElementsByClassName('table table-sm table-bordered')[0].textContent.match(/姓名（ふりがな）(.*)\s[（(]/);
-            if (!(tagetString == null || tagetString == '')) {
-                tagetString = tagetString[1].split(/\s+/)[0]
-                console.log(tagetString);
-                navigator.clipboard.writeText(tagetString);
-            } else {
-                navigator.clipboard.writeText('ER');
-            }
-        }));;
-    }
+
     //////////______________________________________会員詳細情報画面のみ/////______________________________________会員詳細情報画面のみ/////______________________________________会員詳細情報画面のみ
     document.getElementById("member_search_freeword").oninput = function () {
         const value = document.getElementById("member_search_freeword").value;
