@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         pncs33
 // @namespace    http://tampermonkey.net/
-// @version      0.16045
+// @version      0.16046
 // @description  try to take over the world!
 // @author       hgy
 // @match        https://*/*
@@ -121,9 +121,9 @@ if (mwurl.match(/\/admin\/parties\//)) {
     var idinp3 = document.getElementsByClassName('party_start_at')
     var party_id = document.getElementsByClassName('party_id')
     for (var pidi = 0; pidi < full.length; pidi++) {
-        var prime_minister_list = document.getElementsByClassName('col-sm-7 text-left')[pidi]
+        
         var before = document.getElementsByClassName('col-sm-7 text-left')[pidi].innerHTML
-        prime_minister_list.innerHTML = `<button type='button' class='allinbutton' style="background:#FFFFAA;">AllCopy</button>${before}`
+        
         full[pidi].addEventListener('mouseover', function (e) {
             var NUMPid = ($('.col-sm-7.text-left').index(this))
             console.log(NUMPid)
